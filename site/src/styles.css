@@ -4,3 +4,9 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+.inner-component{
+    width: 940px;
+    min-height: calc(100vh - 111px);
+    overflow:hidden;
+}

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {NgbDate, NgbCalendar, NgbDateParserFormatter} from '@ng-bootstrap/ng-bootstrap';
+import { NgbDate, NgbCalendar, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-root',
@@ -9,13 +9,20 @@ import {NgbDate, NgbCalendar, NgbDateParserFormatter} from '@ng-bootstrap/ng-boo
 export class AppComponent {
   title = 'travel';
   hoveredDate: NgbDate | null = null;
-
   fromDate: NgbDate | null;
   toDate: NgbDate | null;
+  country: boolean;
+  hotel: boolean;
+  ticket: boolean;
+  visibleTextAboveUs: boolean;
 
   constructor(private calendar: NgbCalendar, public formatter: NgbDateParserFormatter) {
-    this.fromDate = calendar.getToday();
-    this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
+    this.fromDate =null;
+    this.toDate = null;
+    this.visibleTextAboveUs=true;
+    this.country=false;
+    this.hotel=false;
+    this.ticket=false;
   }
 
   onDateSelection(date: NgbDate) {
@@ -44,5 +51,29 @@ export class AppComponent {
   validateInput(currentValue: NgbDate | null, input: string): NgbDate | null {
     const parsed = this.formatter.parse(input);
     return parsed && this.calendar.isValid(NgbDate.from(parsed)) ? NgbDate.from(parsed) : currentValue;
+  }
+  visibleCountry(): void {
+    this.visibleTextAboveUs=false;
+    this.country=true;
+    this.hotel=false;
+    this.ticket=false;
+  }
+  visibleHotel(): void {
+    this.visibleTextAboveUs=false;
+    this.country=false;
+    this.hotel=true;
+    this.ticket=false;
+  }
+  visibleTicket(){
+    this.visibleTextAboveUs=false;
+    this.country=false;
+    this.hotel=false;
+    this.ticket=true;
+  }
+  visibleAboveUs(){
+    this.visibleTextAboveUs=true;
+    this.country=false;
+    this.hotel=false;
+    this.ticket=false;
   }
 }
