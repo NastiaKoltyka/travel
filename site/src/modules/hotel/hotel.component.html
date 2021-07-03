@@ -1,3 +1,28 @@
 <div class="inner-component">
-  <p>hotel works!</p>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Hotel</th>
+        <th>Free seats in hotel</th>
+        <th>City</th>
+        <th>Check-In</th>
+        <th>Check-Out</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let country of contries"
+        [ngClass]="{'table-success': country.check,'table-secondary': country.status==false }">
+        <td>
+          <input type="checkbox" name="" id="" class="form-check-input" [(ngModel)]="country.check"
+            [disabled]="country.status==false">
+        </td>
+        <td>{{country.name}}</td>
+        <td>{{country.status ? 'available' : 'not available'}}</td>
+        <td>{{country.countOfHotels}}</td>
+        <td>{{country.countOfTickets}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <button >Check</button>
 </div>

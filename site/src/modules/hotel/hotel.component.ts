@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
+
+import { HttpService} from '..//../app/http.service';
+import {Hotels} from '..//../classes/hotels';
 
 @Component({
   selector: 'app-hotel',
@@ -6,10 +9,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hotel.component.css']
 })
 export class HotelComponent implements OnInit {
-
-  constructor() { }
+@Input()countryId:number[]
+hotels:Hotels[]=[];
+  constructor() {
+    this.countryId=[]
+   }
 
   ngOnInit(): void {
+    
   }
 
 }

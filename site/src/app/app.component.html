@@ -62,8 +62,8 @@
         eveniet maiores consequatur similique suscipit odit rerum earum. Laboriosam fugit cumque minima nihil corporis
         similique nisi aliquid
     </div>
-    <app-country *ngIf="country" [fromDate]="fromDate" [toDate]="toDate"></app-country>
-    <app-hotel *ngIf="hotel"></app-hotel>
+    <app-country *ngIf="country" [fromDate]="fromDate" [toDate]="toDate" (onChanged)="onChanged($event)"></app-country>
+    <app-hotel *ngIf="hotel" [countryId]="countryId"></app-hotel>
     <app-ticket *ngIf="ticket"></app-ticket>
 </div>
 </div>

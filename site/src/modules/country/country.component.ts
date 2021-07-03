@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 
 import { HttpService} from '..//../app/http.service';
@@ -12,6 +12,7 @@ import {Country} from '..//../classes/country';
 export class CountryComponent implements OnInit {
   @Input() fromDate: any;
   @Input() toDate: any;
+  @Output() onChanged = new EventEmitter();
   contries:Country[]=[];
 
   constructor(private httpService: HttpService) {
@@ -27,5 +28,9 @@ export class CountryComponent implements OnInit {
       this.httpService.getCountryInRange(this.fromDate, this.toDate).subscribe((data:any) => this.contries=data);
     }
   }
+  check(){
+    let checkedCountries:Country[]=this.contries.filter(countrie => countrie.check ==true);
+    this.onChanged.emit(checkedCountries.map(val=>val.id));
+    }
 
 }

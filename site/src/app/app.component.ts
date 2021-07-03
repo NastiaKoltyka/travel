@@ -15,6 +15,7 @@ export class AppComponent {
   hotel: boolean;
   ticket: boolean;
   visibleTextAboveUs: boolean;
+  countryId:number[]
 
   constructor(private calendar: NgbCalendar, public formatter: NgbDateParserFormatter) {
     this.fromDate =null;
@@ -23,6 +24,8 @@ export class AppComponent {
     this.country=false;
     this.hotel=false;
     this.ticket=false;
+    this.countryId=[]
+
   }
 
   onDateSelection(date: NgbDate) {
@@ -76,4 +79,7 @@ export class AppComponent {
     this.hotel=false;
     this.ticket=false;
   }
+  onChanged(country:number[]){
+    this.countryId=country;
+}
 }
