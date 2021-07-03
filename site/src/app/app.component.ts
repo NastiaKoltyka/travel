@@ -14,6 +14,7 @@ export class AppComponent {
   visibleTextAboveUs: boolean;
   range: FormGroup;
   countryId: number[];
+  
 
   constructor() {
     this.range = new FormGroup({

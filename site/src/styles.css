@@ -7,7 +7,7 @@
 
 .inner-component{
     width: 940px;
-    min-height: calc(100vh - 111px);
+    min-height: calc(100vh - 166px);
     overflow:hidden;
 }
 html, body { height: 100%; }

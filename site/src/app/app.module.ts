@@ -12,6 +12,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatNativeDateModule} from '@angular/material/core';
+import { DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -32,7 +33,7 @@ import {MatNativeDateModule} from '@angular/material/core';
     MatNativeDateModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

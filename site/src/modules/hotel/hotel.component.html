@@ -11,16 +11,16 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let country of contries"
-        [ngClass]="{'table-success': country.check,'table-secondary': country.status==false }">
+      <tr *ngFor="let hotel of hotels"
+        [ngClass]="{'table-success': hotel.check}">
         <td>
-          <input type="checkbox" name="" id="" class="form-check-input" [(ngModel)]="country.check"
-            [disabled]="country.status==false">
+          <input type="checkbox" name="" id="" class="form-check-input" [(ngModel)]="hotel.check">
         </td>
-        <td>{{country.name}}</td>
-        <td>{{country.status ? 'available' : 'not available'}}</td>
-        <td>{{country.countOfHotels}}</td>
-        <td>{{country.countOfTickets}}</td>
+        <td>{{hotel.hotelName}}</td>
+        <td>{{hotel.freeSeatsInHotel}}</td>
+        <td>{{hotel.city}}</td>
+        <td>{{hotel.checkIn | date: 'MM-dd-yyyy'}}</td>
+        <td>{{hotel.checkOut| date: 'MM-dd-yyyy'}}</td>
       </tr>
     </tbody>
   </table>

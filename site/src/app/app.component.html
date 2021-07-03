@@ -12,8 +12,6 @@
         <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
         <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
     </mat-form-field>
-
-    <p>Selected range: {{range.value | json}}</p>
 </div>
 <div class="background">
     <div class="content">
@@ -31,7 +29,7 @@
             nisi aliquid
         </div>
     <app-country *ngIf="country" [fromDate]="range.value.start" [toDate]="range.value.end" (onChanged)="onChanged($event)"></app-country>
-    <app-hotel *ngIf="hotel" [countryId]="countryId"></app-hotel>
+    <app-hotel *ngIf="hotel" [fromDate]="range.value.start" [toDate]="range.value.end" [countryId]="countryId"></app-hotel>
     <app-ticket *ngIf="ticket"></app-ticket>
 </div>
 </div>
