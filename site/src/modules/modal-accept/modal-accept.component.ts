@@ -1,4 +1,5 @@
 import { Component, OnInit,Output,EventEmitter } from '@angular/core';
+import { HttpService } from '..//../app/http.service';
 
 @Component({
   selector: 'app-modal-accept',
@@ -9,7 +10,7 @@ export class ModalAcceptComponent implements OnInit {
   @Output() closeAcceptModal = new EventEmitter();
   @Output() openSuccessModal = new EventEmitter();
 
-  constructor() { }
+  constructor(private httpService: HttpService) { }
 
   ngOnInit(): void {
   }
@@ -17,7 +18,7 @@ export class ModalAcceptComponent implements OnInit {
     this.closeAcceptModal.emit();
   }
   openModalSuccess(){
-    this.openSuccessModal.emit();
+      this.httpService.placeOrder().subscribe((data: any) => this.openSuccessModal.emit());
   }
 
 }

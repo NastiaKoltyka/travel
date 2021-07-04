@@ -102,6 +102,7 @@ export class AppComponent {
   }
   closeSuccessModal() {
     this.modalSuccess=false;
+    this.modalAccept=false;
     this.pickerChanged()
   }
 }
