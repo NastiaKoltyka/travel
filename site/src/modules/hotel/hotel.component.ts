@@ -1,7 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { HttpService } from '..//../app/http.service';
-import { Hotels } from '..//../classes/hotels';
+import { Hotel } from '../../classes/hotel';
 
 @Component({
   selector: 'app-hotel',
@@ -9,14 +9,15 @@ import { Hotels } from '..//../classes/hotels';
   styleUrls: ['./hotel.component.css']
 })
 export class HotelComponent implements OnInit {
-  @Input() countryId: number[]
-  @Input() fromDate: Date
-  @Input() toDate: Date
-  hotels: Hotels[] = [];
+  @Input() countryId: number[];
+  @Input() fromDate: Date;
+  @Input() toDate: Date;
+  @Output() onChanged = new EventEmitter<number[]>();
+  hotels: Hotel[] = [];
   constructor(private httpService: HttpService) {
-    this.fromDate=new Date
-    this.toDate=new Date
-    this.countryId = []
+    this.fromDate = new Date;
+    this.toDate = new Date;
+    this.countryId = [];
   }
 
   ngOnInit(): void {
@@ -24,8 +25,12 @@ export class HotelComponent implements OnInit {
       this.httpService.getHotels(this.countryId).subscribe((data: any) => this.hotels = data);
     }
     else {
-      this.httpService.getHotelsInRange(this.countryId,this.fromDate, this.toDate).subscribe((data: any) => this.hotels = data);
+      this.httpService.getHotelsInRange(this.countryId, this.fromDate, this.toDate).subscribe((data: any) => this.hotels = data);
     }
   }
 
+  check() {
+    let checkedHotels: Hotel[] = this.hotels.filter(hotel => hotel.check == true);
+    this.onChanged.emit(checkedHotels.map(val => val.id));
+  }
 }

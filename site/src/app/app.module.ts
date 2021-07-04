@@ -13,6 +13,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatNativeDateModule} from '@angular/material/core';
 import { DatePipe } from '@angular/common';
+import { ModalComponent } from './modal/modal.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { DatePipe } from '@angular/common';
     AppComponent,
     CountryComponent,
     HotelComponent,
-    TicketComponent
+    TicketComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

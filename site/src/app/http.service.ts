@@ -22,5 +22,13 @@ export class HttpService {
     let hotelArr = countryId.map(val => `countries[]=${val}`);
     return this.http.get(`http://127.0.0.1:3000/api/hotels/${this.datepipe.transform(from, 'yyyy-MM-dd')}/${this.datepipe.transform(to, 'yyyy-MM-dd')}/?${hotelArr.join('&')}`);
   }
+  getTickets(countryId:number[]) {
+    let ticketArr = countryId.map(val => `countries[]=${val}`);
+    return this.http.get(`http://127.0.0.1:3000/api/tickets/?${ticketArr.join('&')}`);
+  }
+  getTicketsInRange(countryId:number[], from:Date, to:Date){
+    let ticketArr = countryId.map(val => `countries[]=${val}`);
+    return this.http.get(`http://127.0.0.1:3000/api/hotels/${this.datepipe.transform(from, 'yyyy-MM-dd')}/${this.datepipe.transform(to, 'yyyy-MM-dd')}/?${ticketArr.join('&')}`);
+  }
 }
 

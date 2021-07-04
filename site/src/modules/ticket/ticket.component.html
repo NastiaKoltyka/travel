@@ -1,3 +1,24 @@
 <div class="inner-component">
-  <p>ticket works!</p>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Airlines</th>
+        <th>Free seats</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ticket of tickets"
+        [ngClass]="{'table-success': ticket.check}">
+        <td>
+          <input type="checkbox" name="" id="" class="form-check-input" [(ngModel)]="ticket.check">
+        </td>
+        <td>{{ticket.airline}}</td>
+        <td>{{ticket.freeSeats}}</td>
+        <td>{{ticket.date | date: 'MM-dd-yyyy'}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <button (click)="check()">Check</button>
 </div>

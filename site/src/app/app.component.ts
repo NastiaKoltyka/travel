@@ -11,10 +11,13 @@ export class AppComponent {
   country: boolean;
   hotel: boolean;
   ticket: boolean;
+  modal: boolean;
   visibleTextAboveUs: boolean;
   range: FormGroup;
   countryId: number[];
-  
+  hotelIds: number[];
+  ticketIds: number[];
+  modalMessage: string;
 
   constructor() {
     this.range = new FormGroup({
@@ -25,8 +28,11 @@ export class AppComponent {
     this.country = false;
     this.hotel = false;
     this.ticket = false;
-    this.countryId = []
-
+    this.countryId = [];
+    this.hotelIds = [];
+    this.ticketIds = [];
+    this.modal = false;
+    this.modalMessage = '';
   }
   visibleCountry(): void {
     this.visibleTextAboveUs = false;
@@ -35,16 +41,26 @@ export class AppComponent {
     this.ticket = false;
   }
   visibleHotel(): void {
-    this.visibleTextAboveUs = false;
-    this.country = false;
-    this.hotel = true;
-    this.ticket = false;
+    if (this.countryId.length > 0) {
+      this.visibleTextAboveUs = false;
+      this.country = false;
+      this.hotel = true;
+      this.ticket = false;
+    } else {
+      this.modal = true;
+      this.modalMessage = 'Please, choose the country first!';
+    }
   }
   visibleTicket() {
-    this.visibleTextAboveUs = false;
-    this.country = false;
-    this.hotel = false;
-    this.ticket = true;
+    if (this.countryId.length > 0 && this.hotelIds.length > 0) {
+      this.visibleTextAboveUs = false;
+      this.country = false;
+      this.hotel = false;
+      this.ticket = true;
+    } else {
+      this.modal = true;
+      this.modalMessage = 'Please, choose the country and the hotel first!';
+    }
   }
   visibleAboveUs() {
     this.visibleTextAboveUs = true;
@@ -52,7 +68,19 @@ export class AppComponent {
     this.hotel = false;
     this.ticket = false;
   }
-  onChanged(country: number[]) {
+  onCountryChanged(country: number[]) {
     this.countryId = country;
+  }
+  onHotelChanged(hotels: number[]) {
+    this.hotelIds = hotels;
+  }
+  onTicketChanged(tickets: number[]) {
+    this.ticketIds = tickets;
+    if(this.ticketIds.length > 0){
+      console.log('Show the modal')
+    }
+  }
+  closeModal() {
+    this.modal = false;
   }
 }
