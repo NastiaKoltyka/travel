@@ -12,21 +12,29 @@ export class TicketComponent implements OnInit {
   @Input() countryId: number[];
   @Input() fromDate: Date;
   @Input() toDate: Date;
+  @Input() ticketIds: number[];
   @Output() onChanged = new EventEmitter<number[]>();
   tickets: Ticket[] = [];
   constructor(private httpService: HttpService) {
     this.fromDate = new Date;
     this.toDate = new Date;
     this.countryId = [];
+    this.ticketIds = [];
   }
 
   ngOnInit(): void {
     if (this.fromDate == null || this.toDate == null) {
-      this.httpService.getTickets(this.countryId).subscribe((data: any) => this.tickets = data);
+      this.httpService.getTickets(this.countryId).subscribe((data: any) => this.fillTickets(data));
     }
     else {
-      this.httpService.getTicketsInRange(this.countryId, this.fromDate, this.toDate).subscribe((data: any) => this.tickets = data);
+      this.httpService.getTicketsInRange(this.countryId, this.fromDate, this.toDate).subscribe((data: any) => this.fillTickets(data));
     }
+  }
+  fillTickets(data:Ticket[]) {
+    this.tickets = data;
+    this.tickets.forEach(ticket => {
+      ticket.check = this.ticketIds.includes(ticket.id);
+    });
   }
 
   check() {

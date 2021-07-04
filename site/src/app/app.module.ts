@@ -13,7 +13,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatNativeDateModule} from '@angular/material/core';
 import { DatePipe } from '@angular/common';
-import { ModalComponent } from './modal/modal.component';
+import { ModalComponent } from '../modules/modal/modal.component';
+import { ModalAcceptComponent } from '../modules/modal-accept/modal-accept.component';
+import { ModalSuccessComponent } from '../modules/modal-success/modal-success.component';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { ModalComponent } from './modal/modal.component';
     CountryComponent,
     HotelComponent,
     TicketComponent,
-    ModalComponent
+    ModalComponent,
+    ModalAcceptComponent,
+    ModalSuccessComponent
   ],
   imports: [
     BrowserModule,

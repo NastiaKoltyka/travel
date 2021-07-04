@@ -18,6 +18,8 @@ export class AppComponent {
   hotelIds: number[];
   ticketIds: number[];
   modalMessage: string;
+  modalAccept:boolean;
+  modalSuccess:boolean;
 
   constructor() {
     this.range = new FormGroup({
@@ -33,6 +35,8 @@ export class AppComponent {
     this.ticketIds = [];
     this.modal = false;
     this.modalMessage = '';
+    this.modalAccept=false;
+    this.modalSuccess=false;
   }
   visibleCountry(): void {
     this.visibleTextAboveUs = false;
@@ -77,10 +81,27 @@ export class AppComponent {
   onTicketChanged(tickets: number[]) {
     this.ticketIds = tickets;
     if(this.ticketIds.length > 0){
-      console.log('Show the modal')
+      this.modalAccept=true;
     }
   }
   closeModal() {
     this.modal = false;
+    this.modalAccept=false;
+  }
+  pickerChanged(){
+    this.visibleTextAboveUs = true;
+    this.country = false;
+    this.hotel = false;
+    this.ticket = false;
+    this.countryId = [];
+    this.hotelIds = [];
+    this.ticketIds = [];
+  }
+  openSuccessModal(){
+    this.modalSuccess=true;
+  }
+  closeSuccessModal() {
+    this.modalSuccess=false;
+    this.pickerChanged()
   }
 }
