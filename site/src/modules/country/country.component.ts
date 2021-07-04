@@ -15,6 +15,8 @@ export class CountryComponent implements OnInit {
   @Input() countryId: number[];
   @Output() onChanged = new EventEmitter<number[]>();
   contries: Country[] = [];
+  page = 1;
+  pageSize =10;
 
   constructor(private httpService: HttpService) {
     this.fromDate = '';
@@ -42,5 +44,6 @@ export class CountryComponent implements OnInit {
     let checkedCountries: Country[] = this.contries.filter(country => country.check == true);
     this.onChanged.emit(checkedCountries.map(val => val.id));
   }
+  
 
 }

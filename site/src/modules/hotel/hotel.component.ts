@@ -14,6 +14,8 @@ export class HotelComponent implements OnInit {
   @Input() toDate: Date;
   @Input() hotelIds: number[];
   @Output() onChanged = new EventEmitter<number[]>();
+  page = 1;
+  pageSize =10;
   hotels: Hotel[] = [];
   constructor(private httpService: HttpService) {
     this.fromDate = new Date;

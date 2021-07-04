@@ -1,81 +1,92 @@
 .header {
-    border-bottom: 1px solid grey;
-    width: 100%;
-    display: flex;
-    padding: 10px;
+  border-bottom: 1px solid grey;
+  width: 100%;
+  display: flex;
+  padding: 10px;
+  background-color: #ffffda;
 }
 
 .title {
-    margin: auto;
-    font-family: monospace;
-    font-size: 30px;
-    color: gold;
-    font-weight: bold;
-    cursor: pointer;
+  margin: auto;
+  font-family: monospace;
+  font-size: 59px;
+  color: gold;
+  font-weight: bold;
+  cursor: pointer;
+  text-shadow: 0 20 black;
+  text-shadow: 4px 2px 5px orange;
+}
+
+.picture {
+  background-image: url(../1437676150_29.png);
+  width: 141px;
+  height: 137px;
+  background-size: cover;
+  margin-top: -37px;
 }
 
 .date {
-    margin-right: 80px;
-    height: 35px;
-    width: 225px;
+  margin-right: 80px;
+  height: 35px;
+  width: 225px;
 }
 
 .footer {
-    border-top: 1px solid grey;
-    width: 100%;
-    padding: 10px;
+  border-top: 1px solid grey;
+  width: 100%;
+  padding: 10px;
 }
 
 .footer div {
-    margin: auto;
-    width: 500px;
+  margin: auto;
+  width: 500px;
 }
 
 .form-group.hidden {
-    width: 0;
-    margin: 0;
-    border: none;
-    padding: 0;
-    height: 0;
+  width: 0;
+  margin: 0;
+  border: none;
+  padding: 0;
+  height: 0;
 }
 
 .custom-day {
-    text-align: center;
-    padding: 0.185rem 0.25rem;
-    display: inline-block;
-    height: 2rem;
-    width: 2rem;
+  text-align: center;
+  padding: 0.185rem 0.25rem;
+  display: inline-block;
+  height: 2rem;
+  width: 2rem;
 }
 
 .custom-day.focused {
-    background-color: #e6e6e6;
+  background-color: #e6e6e6;
 }
 
 .custom-day.range,
 .custom-day:hover {
-    background-color: rgb(2, 117, 216);
-    color: white;
+  background-color: rgb(2, 117, 216);
+  color: white;
 }
 
 .custom-day.faded {
-    background-color: rgba(2, 117, 216, 0.5);
+  background-color: rgba(2, 117, 216, 0.5);
 }
 
 .form-inline {
-    display: flex;
+  display: flex;
 }
 
 .btn {
-    position: relative;
-    z-index: 2;
-    width: 60px;
-    height: 38px;
-    margin-right: 10px;
-    margin-left: 10px;
-    background-size: 31px 26px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-image: url(..//../iconfinder_115762_calendar_date_event_month_icon_512px.png);
+  position: relative;
+  z-index: 2;
+  width: 60px;
+  height: 38px;
+  margin-right: 10px;
+  margin-left: 10px;
+  background-size: 31px 26px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(..//../iconfinder_115762_calendar_date_event_month_icon_512px.png);
 }
 
 .country,
@@ -87,26 +98,42 @@
     text-align: center;
     font-size: 20PX;
     cursor: pointer;
+    line-height: 100px;
+    background-color: #e5fffa;
+    font-weight: bold;
+}
+.country:hover,
+.hotel:hover,
+.ticket:hover {
+    background-color: #8aeeda;
 }
 
 .content {
-    display: flex;
-    background-color: white;
-    padding: 0;
-    width: 1140px;
-    margin: auto;
-}
-.aboveUs{
-    padding: 10px;
-}
-.background{
-    background-image: url(../nautical-symbols-vintage-seamless-pattern_1284-8289.jpg);
-}
-.side-bar{
-    border-right: 1px solid grey;
+  display: flex;
+  background-color: white;
+  padding: 0;
+  width: 1140px;
+  margin: auto;
+  box-shadow: -6px 3px 52px grey;
 }
 
-.mat-form-field{
-    margin-top: 18px;
-    margin-right: 18px;
+.aboveUs {
+  padding: 10px;
+}
+
+.background {
+  background-image: url(../nautical-symbols-vintage-seamless-pattern_1284-8289.jpg);
+}
+
+.side-bar {
+  border-right: 1px solid grey;
+}
+
+.mat-form-field {
+  margin-top: 18px;
+  margin-right: 18px;
+}
+
+.footer {
+  background-color: #e6f3f2;
 }

@@ -14,6 +14,8 @@ export class TicketComponent implements OnInit {
   @Input() toDate: Date;
   @Input() ticketIds: number[];
   @Output() onChanged = new EventEmitter<number[]>();
+  page = 1;
+  pageSize =10;
   tickets: Ticket[] = [];
   constructor(private httpService: HttpService) {
     this.fromDate = new Date;

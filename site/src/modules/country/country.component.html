@@ -10,7 +10,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let country of contries"
+      <tr *ngFor="let country of contries | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize"
         [ngClass]="{'table-success': country.check,'table-secondary': country.status==false }">
         <td>
           <input type="checkbox" name="" id="" class="form-check-input" [(ngModel)]="country.check"
@@ -23,5 +23,6 @@
       </tr>
     </tbody>
   </table>
-  <button (click)="check()">Check</button>
+  <button (click)="check()"class="btn btn-success btn-lg">Check</button>
+  <ngb-pagination [collectionSize]="contries.length" [(page)]="page" [boundaryLinks]="true"></ngb-pagination>
 </div>
