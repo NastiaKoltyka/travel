@@ -4,7 +4,7 @@ export class Country {
     name: string;
     status: boolean;
     countOfHotels: number;
-    countOfTickets: number
+    countOfTickets: number;
 
     constructor(check:boolean, id: number, name: string, status: boolean, countOfHotels: number, countOfTickets: number) {
         this.check=check;

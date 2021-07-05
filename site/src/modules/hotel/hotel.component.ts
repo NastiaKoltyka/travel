@@ -25,7 +25,7 @@ export class HotelComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.fromDate == null || this.toDate == null) {
+    if (!this.fromDate && !this.toDate ) {
       this.httpService.getHotels(this.countryId).subscribe((data: any) => this.fillHotels(data));
     }
     else {

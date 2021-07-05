@@ -115,6 +115,7 @@
   width: 1140px;
   margin: auto;
   box-shadow: -6px 3px 52px grey;
+  -webkit-box-shadow: -6px 3px 52px grey;
 }
 
 .aboveUs {
@@ -137,3 +138,4 @@
 .footer {
   background-color: #e6f3f2;
 }
+

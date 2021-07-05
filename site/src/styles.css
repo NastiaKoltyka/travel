@@ -1,26 +1,48 @@
 /* You can add global styles to this file, and also import other style files */
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-.inner-component{
-    width: 940px;
-    min-height: calc(100vh - 166px);
-    overflow:hidden;
+.inner-component {
+  width: 940px;
+  min-height: calc(100vh - 166px);
+  overflow: hidden;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.inner-component:not(.aboveUs) {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 
-.page-item.active .page-link span{
-    display: none !important;
+.page-item.active .page-link span {
+  display: none !important;
 }
-.pagination{
-    justify-content: center;
-    margin-top: 233px;
+
+.pagination {
+  justify-content: center;
+  margin-top: 233px;
 }
-.btn-success{
-    margin-left: 800px;
+
+.buttons-container{
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 0 10px;
+}
+
+.btn-success {
+  width: 106px;
 }
